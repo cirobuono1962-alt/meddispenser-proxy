@@ -1,14 +1,1 @@
-{
-  "version": 2,
-  "functions": {
-    "api/farmaci.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/farmaci",
-      "dest": "/api/farmaci.js"
-    }
-  ]
-}
+{}
