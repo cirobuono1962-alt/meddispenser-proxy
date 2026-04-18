@@ -232,10 +232,8 @@ async function doSearch(query){
   if(query.length<3){clearSearch();return;}
   document.getElementById('clear-btn').style.display='flex';
   document.getElementById('detail-panel').classList.remove('show');
-  const q=query.toLowerCase();
-  const local=LOCAL_DB.filter(f=>f.name.toLowerCase().includes(q)||f.principle.toLowerCase().includes(q));
-  if(local.length>=3){renderResults(local,'locale');}
-  else{await searchWithAI(query);}
+  // Usa sempre il proxy AI per risultati completi
+  await searchWithAI(query);
 }
 
 document.getElementById('search-input').addEventListener('input',function(){
