@@ -10,29 +10,31 @@ export default async function handler(req, res) {
     return;
   }
 
-  const sys = 'You are an expert on Italian AIFA drugs. Reply ONLY with a JSON array. Fields: name, principle, producer, dose, forma, cat. Max 10 results. Pure JSON only, no markdown.';
-
   try {
-    const body = JSON.stringify({
+    const payload = {
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 1000,
-      system: sys,
-      messages: [{ role: 'user', content: 'Italian drugs for: ' + q }]
-    });
+      messages: [{
+        role: 'user',
+        content: 'List Italian AIFA drugs for: ' + q + '. Reply ONLY with JSON array. Each object: name, principle, producer, dose, forma, cat. Max 10 items. No markdown.'
+      }]
+    };
 
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    
     const claudeRes = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'x-api-key': apiKey,
         'anthropic-version': '2023-06-01'
       },
-      body: body
+      body: JSON.stringify(payload)
     });
 
     if (!claudeRes.ok) {
       const err = await claudeRes.text();
-      throw new Error('Claude ' + claudeRes.status + ': ' + err.substring(0, 100));
+      throw new Error('Status ' + claudeRes.status + ': ' + err.substring(0, 200));
     }
 
     const data = await claudeRes.json();
