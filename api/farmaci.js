@@ -13,10 +13,10 @@ export default async function handler(req, res) {
   try {
     const payload = {
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 1000,
+      max_tokens: 1200,
       messages: [{
         role: 'user',
-        content: 'Sei un esperto di farmaci italiani AIFA. Cerca: ' + q + '. Elenca OGNI dosaggio come riga separata. Rispondi SOLO con JSON array. Campi obbligatori: name (nome commerciale + dosaggio es: "Eliquis 2.5mg"), principle (principio attivo in italiano), producer (produttore), dose (es: "2.5mg"), forma (una di: Compressa, Capsula, Fiala, Gocce, Spray, Cerotto, Sciroppo, Soluzione), cat (categoria terapeutica descrittiva in italiano es: Anticoagulante, Beta-bloccante, Diuretico, Antidiabetico, Gastroprotettore, Antidepressivo, Antiaritmico, Analgesico, Corticosteroide, Statina, ACE-inibitore, Calcio-antagonista). Max 10 risultati. Solo JSON puro senza markdown.'
+        content: 'Sei un esperto di farmaci italiani AIFA. Cerca: ' + q + '. Elenca ogni dosaggio separatamente. Rispondi SOLO con JSON array. Campi: name (nome+dosaggio es "Eliquis 5mg"), principle (principio attivo), producer (produttore), dose (dosaggio), forma (Compressa/Capsula/Fiala/Gocce/Spray/Cerotto/Sciroppo), cat (categoria: Anticoagulante/Beta-bloccante/Diuretico/Antidiabetico/Gastroprotettore/Antidepressivo/Antiaritmico/Analgesico/Corticosteroide/Statina/ACE-inibitore/Calcio-antagonista/Antiaggregante/Sartano/Tiroide), shape (forma pillola: oval/round/oblong/square), color (colore pillola in inglese lowercase: pink/white/yellow/orange/red/blue/green/purple/beige), score (linea di divisione: true/false). Max 10 risultati. Solo JSON puro.'
       }]
     };
 
