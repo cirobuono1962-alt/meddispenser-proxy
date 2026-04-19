@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       max_tokens: 1000,
       messages: [{
         role: 'user',
-        content: 'Sei un esperto di farmaci italiani AIFA. Cerca: ' + q + '. Elenca OGNI dosaggio come riga separata. Il campo name deve includere SEMPRE il dosaggio esempio: "Eliquis 2.5mg", "Eliquis 5mg". Rispondi SOLO con JSON array. Campi: name (nome + dosaggio), principle (principio attivo italiano), producer (produttore), dose (solo numero+unita), forma (Compressa/Capsula/Fiala/Gocce/Spray), cat (categoria italiana). Max 10 risultati. Solo JSON puro.'
+        content: 'Sei un esperto di farmaci italiani AIFA. Cerca: ' + q + '. Elenca OGNI dosaggio come riga separata. Rispondi SOLO con JSON array. Campi obbligatori: name (nome commerciale + dosaggio es: "Eliquis 2.5mg"), principle (principio attivo in italiano), producer (produttore), dose (es: "2.5mg"), forma (una di: Compressa, Capsula, Fiala, Gocce, Spray, Cerotto, Sciroppo, Soluzione), cat (categoria terapeutica descrittiva in italiano es: Anticoagulante, Beta-bloccante, Diuretico, Antidiabetico, Gastroprotettore, Antidepressivo, Antiaritmico, Analgesico, Corticosteroide, Statina, ACE-inibitore, Calcio-antagonista). Max 10 risultati. Solo JSON puro senza markdown.'
       }]
     };
 
