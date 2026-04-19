@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   // Database fisso farmaci comuni con dati reali verificati
   const KNOWN = [
     {name:'Eliquis 2.5mg',principle:'Apixaban',producer:'Bristol-Myers Squibb',dose:'2.5mg',forma:'Compressa',cat:'Anticoagulante',shape:'oval',color:'pink',score:false},
-    {name:'Eliquis 5mg',principle:'Apixaban',producer:'Bristol-Myers Squibb',dose:'5mg',forma:'Compressa',cat:'Anticoagulante',shape:'oval',color:'white',score:false},
+    {name:'Eliquis 5mg',principle:'Apixaban',producer:'Bristol-Myers Squibb',dose:'5mg',forma:'Compressa',cat:'Anticoagulante',shape:'oval',color:'pink',score:false},
     {name:'Xarelto 10mg',principle:'Rivaroxaban',producer:'Bayer',dose:'10mg',forma:'Compressa',cat:'Anticoagulante',shape:'round',color:'red',score:false},
     {name:'Xarelto 15mg',principle:'Rivaroxaban',producer:'Bayer',dose:'15mg',forma:'Compressa',cat:'Anticoagulante',shape:'round',color:'red',score:false},
     {name:'Xarelto 20mg',principle:'Rivaroxaban',producer:'Bayer',dose:'20mg',forma:'Compressa',cat:'Anticoagulante',shape:'oval',color:'brown',score:false},
