@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       max_tokens: 1200,
       messages: [{
         role: 'user',
-        content: 'Sei un esperto di farmaci italiani AIFA. Cerca: ' + q + '. Elenca ogni dosaggio separatamente. Rispondi SOLO con JSON array. Campi: name (nome+dosaggio es "Eliquis 5mg"), principle (principio attivo), producer (produttore), dose (dosaggio), forma (Compressa/Capsula/Fiala/Gocce/Spray/Cerotto/Sciroppo), cat (categoria: Anticoagulante/Beta-bloccante/Diuretico/Antidiabetico/Gastroprotettore/Antidepressivo/Antiaritmico/Analgesico/Corticosteroide/Statina/ACE-inibitore/Calcio-antagonista/Antiaggregante/Sartano/Tiroide), shape (forma pillola: oval/round/oblong/square), color (colore pillola in inglese lowercase: pink/white/yellow/orange/red/blue/green/purple/beige), score (linea di divisione: true/false). Max 10 risultati. Solo JSON puro.'
+        content: 'Sei un esperto farmacista italiano. Conosci l aspetto fisico esatto dei farmaci AIFA. Cerca: ' + q + '. Per ogni dosaggio descrivi con precisione il colore reale della compressa/capsula. Esempi noti: Eliquis 2.5mg=ovale rosa, Eliquis 5mg=ovale rosa, Xarelto 10mg=rotonda rossa, Xarelto 20mg=ovale rosso-marrone, Eutirox compresse=bianche rotonde, Tachipirina=bianca ovale, Lasix=bianca rotonda, Aspirina=bianca rotonda. Rispondi SOLO con JSON array. Campi: name (nome+dosaggio), principle, producer, dose, forma (Compressa/Capsula/Fiala/Gocce/Spray/Cerotto/Sciroppo), cat (categoria italiana), shape (oval/round/oblong), color (pink/white/yellow/orange/red/blue/green/purple/beige/brown - il colore REALE e PRECISO per quel dosaggio specifico), score (true/false se ha linea di divisione). Max 10 risultati. Solo JSON puro.'
       }]
     };
 
